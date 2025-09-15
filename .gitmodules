@@ -1,0 +1,9 @@
+[submodule "web"]
+	path = web
+	url = git@github.com:mediside/web.git
+[submodule "inference"]
+	path = inference
+	url = git@github.com:mediside/inference.git
+[submodule "apiservice"]
+	path = apiservice
+	url = git@github.com:mediside/apiservice.git
