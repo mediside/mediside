@@ -1,0 +1,45 @@
+services:
+  postgres:
+    image: postgres:17.6-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: med
+    expose:
+      - 5432
+
+  redis:
+    image: redis:8.2-alpine
+    restart: always
+    expose:
+      - 6379
+
+  apiservice:
+    build: apiservice
+    restart: always
+    depends_on:
+      postgres:
+        condition: service_started
+      redis:
+        condition: service_started
+    expose:
+      - 9042
+
+  web:
+    build: web
+    restart: always
+    depends_on:
+      apiservice:
+        condition: service_started
+    ports:
+      - 80:80
+      - 443:443
+
+  inference:
+    build: inference
+    restart: always
+    environment:
+      PYTHONUNBUFFERED: 1 # для работы print
+    expose:
+      - 3042
