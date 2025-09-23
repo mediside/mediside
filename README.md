@@ -22,6 +22,6 @@ docker copmose -f docker-compose-dev.yaml down # остановка и удал�
 # Деплой
 
 ```bash
-docker compose -f docker-compose-prod.yaml up -d # запуск
+docker compose -f docker-compose-prod.yaml up -d --build apiservice --build web --build inference # запуск
 docker copmose -f docker-compose-prod.yaml down # остановка и удаление
 ```
