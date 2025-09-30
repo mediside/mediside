@@ -29,6 +29,8 @@ services:
         condition: service_started
     expose:
       - 9042
+    volumes:
+    - ./volumes/researches:/researches
 
   web:
     build: web
@@ -46,4 +48,6 @@ services:
     environment:
       PYTHONUNBUFFERED: 1 # для работы print
     expose:
-      - 3042
+      - 30042
+    volumes:
+    - ./volumes/researches:/researches
