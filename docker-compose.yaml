@@ -39,7 +39,12 @@ services:
     restart: always
     environment:
       PYTHONUNBUFFERED: 1 # для работы print
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility
     expose:
       - 30042
     volumes:
     - ./volumes/researches:/researches
+    runtime: nvidia
+    gpus: all
+    privileged: true
