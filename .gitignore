@@ -1,2 +1,4 @@
 task
 volumes
+DEPLOY.md
+exclude-list.txt
