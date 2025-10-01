@@ -2,3 +2,5 @@ task
 volumes
 DEPLOY.md
 exclude-list.txt
+data
+collection_id.txt
