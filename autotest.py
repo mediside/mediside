@@ -73,7 +73,9 @@ except FileNotFoundError as e:
         f.write(collection_id)
 
 print('collection id:', collection_id)
+print('You can open this collection in browser:', f'http://{HOST}/collections/{collection_id}')
 
+print('Start upload files, please, wait...')
 for filename in os.listdir(FOLDER):
     file_path = os.path.join(FOLDER, filename)
     if os.path.isfile(file_path):
