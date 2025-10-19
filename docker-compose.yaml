@@ -20,7 +20,7 @@ services:
     expose:
       - 9042
     volumes:
-    - ./volumes/researches:/researches
+    - ./volumes/researches:/app/volumes/researches
 
   web:
     build: web
@@ -44,7 +44,7 @@ services:
     expose:
       - 30042
     volumes:
-    - ./volumes/researches:/researches
+    - ./volumes/researches:/app/volumes/researches
     runtime: nvidia
     gpus: all
     privileged: true
